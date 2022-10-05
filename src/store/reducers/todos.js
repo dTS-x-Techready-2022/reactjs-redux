@@ -6,14 +6,24 @@ const initialState = {
     switch (action.type) {
       case "ADD":
         return {
-          ...state, // { counter: 0 }
+          ...state, 
           todolist: [...state.todolist, action.payload] // override
         };
+        
       case "RESETALL":
         return {
-          ...state, // { counter: 0 }
+          ...state, 
           todolist: []
         };
+
+      case "REMOVE":
+        let todo = state.todolist
+        todo.splice(action.payload, 1);
+        return {
+            ...state, 
+            todolist: todo
+          };
+
       default:
         return state;
     }

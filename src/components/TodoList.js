@@ -1,22 +1,15 @@
-import { Col, ListGroup, ListGroupItem, Row } from "reactstrap"
-import { useSelector } from "react-redux";
+import { CloseButton, Col, ListGroup, ListGroupItem, Row } from "reactstrap"
+import { useDispatch, useSelector } from "react-redux";
 
 
 const TodoList = () => {
     const store = useSelector((state) => state.todos);
+    const dispatch = useDispatch();    
     
-    const renderList = () => {
-        return store.todolist.map((val, i) => {
-            return (
-                
-                <ListGroupItem key={i}>
-                    {val}
-                </ListGroupItem>
-            )
-        })
-        
-        
+    const handleRemove = (i) => {
+        dispatch({ type: "REMOVE", payload: i})
     }
+
     return (
         <>
         <Row className="mt-3 text-start">
@@ -24,7 +17,18 @@ const TodoList = () => {
                 
             {(store.todolist.length) ? 
                 <ListGroup>
-                        {renderList()}
+                        {
+                            store.todolist.map((val, i) => {
+                                return (
+                                    <ListGroupItem key={i} className="d-flex justify-content-between" >
+                                        <span>{val}</span>
+                                        <CloseButton onClick={() => handleRemove(i)}/>
+                                    </ListGroupItem>
+                                )
+                            })
+                            
+                            
+                        }
                 </ListGroup>
                 : <h4>Not Found</h4>
             }
