@@ -8,6 +8,7 @@ import TodoAddButton from "./components/TodoAddButton";
 import TodoList from "./components/TodoList";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MediaCard from "./components/MediaCard";
 function App() {
   return (
     <div className="App p-2">
@@ -25,6 +26,7 @@ function App() {
             <CardBody>
               <TodoAddButton/>
               <TodoList/>
+              <MediaCard/>
             </CardBody>  
           </Card>
         </Col>
