@@ -26,7 +26,6 @@ function App() {
             <CardBody>
               <TodoAddButton/>
               <TodoList/>
-              <MediaCard/>
             </CardBody>  
           </Card>
         </Col>
