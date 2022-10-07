@@ -1,17 +1,40 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
+import { Card, CardBody, Col, Row } from "reactstrap";
 import "./App.css";
-import { Counter } from "./components/Counter";
-import { SetCounter } from "./components/SetCounter";
+import TodoAddButton from "./components/TodoAddButton";
+// import { Counter } from "./components/Counter";
+// import { SetCounter } from "./components/SetCounter";
 
+import TodoList from "./components/TodoList";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MediaCard from "./components/MediaCard";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App p-2">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <SetCounter />
-      </header>
+      </header> */}
+      <h1>
+        Todo List
+      </h1>
+      <Row style={{padding: '2rem'}}>
+        <Col xs={12} md={{offset: 3, size: 6}}>
+          <Card>
+            <CardBody>
+              <TodoAddButton/>
+              <TodoList/>
+            </CardBody>  
+          </Card>
+        </Col>
+      </Row>
+      
+      
     </div>
+
+
   );
 }
 
